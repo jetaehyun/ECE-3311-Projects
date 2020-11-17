@@ -1,11 +1,11 @@
 import numpy as np
-data = np.fromfile("/home/ksgilll/Desktop/ECE3311/Projects/Project2/Source Code/mystery_FM.dat",dtype="uint8")
+data = np.fromfile("C:/Users/ManjushaChava/Downloads/ECE-3311-Projects/Project 3/mystery_FM.dat",dtype="uint8")
 x = data[0::2] + 1j*data[1::2]
 def fm_demod(y):
-	''' 
-		This function demodualtes an FM signal. It is assumed that the FM signal 
-		is complex (i.e. an IQ signal) centered at DC
-	'''
+	# ''' 
+	# 	This function demodualtes an FM signal. It is assumed that the FM signal 
+	# 	is complex (i.e. an IQ signal) centered at DC
+	# '''
 	df=y/abs(y) #normalize the amplitude (i.e. remove amplitude variations)
 	fc = 0
 	# Remove carrier.
@@ -22,5 +22,6 @@ if __name__ == "__main__":
 	print(fm_decoded.shape)
 	## Write Data To AudioFile	
 	fm_decoded*= 1000 / np.max(np.abs(fm_decoded))               # scale so it's audible
-	fm_decoded.astype("int16").tofile("/home/ksgilll/Desktop/ECE3311/Projects/Project2/Source Code/recording.raw")
+	fm_decoded.astype("int16").tofile("C:/Users/ManjushaChava/Downloads/ECE-3311-Projects/Project 3/recording.raw")
+	
 
